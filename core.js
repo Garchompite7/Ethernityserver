@@ -119,10 +119,15 @@ var core = exports.core = {
 			return Core.stdin('tourWins', user);
 		},
 
+		pclWins: function (user) {
+			return Core.stdin('pclWins', user);
+		},
+
 		display: function (args, info) {
 			if (args === 'title') return '<div class="profile-title">&nbsp;' + info + '</div>';
 			if (args === 'bp') return '<br>&nbsp;<strong><font color="' + this.color + '">Battle Points:</font></strong>&nbsp;' + info;
 			if (args === 'tourWins') return '<br>&nbsp;<strong><font color="' + this.color + '">Tournament Wins:</font></strong>&nbsp;' + info;
+			if (args === 'pclWins') return '<br>&nbsp;<strong><font color="' + this.color + '">PCL Tournament Wins:</font></strong>&nbsp;' + info;
 		},
 
 	},
@@ -159,7 +164,40 @@ var core = exports.core = {
 		}
 		return 0;
 	},
-	
+
+	pclLadder: function (limit) {
+		var data = fs.readFileSync('config/pclWins.csv', 'utf-8');
+		var row = ('' + data).split("\n");
+
+		var list = [];
+
+		for (var i = row.length; i > -1; i--) {
+			if (!row[i] || row[i].indexOf(',') < 0) continue;
+			var parts = row[i].split(",");
+			list.push([toId(parts[0]), Number(parts[1])]);
+		}
+
+		list.sort(function (a, b) {
+			return a[1] - b[1];
+		});
+
+		if (list.length > 1) {
+			var ladder = '<table border="1" cellspacing="0" cellpadding="3"><tbody><tr><th>Rank</th><th>User</th><th>Tournament Wins</th></tr>';
+			var len = list.length;
+
+			limit = len - limit;
+			if (limit > len) limit = len;
+
+			while (len--) {
+				ladder = ladder + '<tr><td>' + (list.length - len) + '</td><td>' + list[len][0] + '</td><td>' + Math.floor(list[len][1]) + '</td></tr>';
+				if (len === limit) break;
+			}
+			ladder += '</tbody></table>';
+			return ladder;
+		}
+		return 0;
+	},
+
 	shop: function (showDisplay) {
 		var shop = [
 			['Star', 'Buy a \u2606 to go in front of your name and puts you at the top of the user list. (Goes away if you leave for more than one hour or the server restarts.)', 5],
@@ -340,7 +378,7 @@ var core = exports.core = {
 	},
 
 	tournaments: {
-		tourSize: 8,
+		tourSize: 4,
 		amountEarn: 10,
 		earningBP: function () {
 			if (this.amountEarn === 10) return '<u>Standard (8 players = 1 Battle Point)</u> Double (4 players = 1 Battle Point) Quadruple (2 players = 1 Battle Point) PC Custom (1 player = 1 Battle Point)';
