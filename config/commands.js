@@ -1560,11 +1560,12 @@ var commands = exports.commands = {
 		if (room.id === 'lobby' && !this.can('lockdown')) return false;
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox(
-			"The server is restarting. Things to know:<br />" +
-			"- We wait a few minutes before restarting so people can finish up their battles<br />" +
-			"- The restart itself will take around 0.6 seconds<br />" +
-			"- Your ladder ranking and teams will not change<br />" +
-			"- We are restarting to update Pokémon Showdown to a newer version"
+			"<font color='red'><center>The server is restarting. Things to know:</font></center><br />" +
+ 			"- We wait a few minutes before restarting so people can finish up their battles<br />" +			"- The restart itself will take around 0.6 seconds<br />" +
+ 			"- The restart itself will take around 10 minutes<br />" +
+ 			"- Your ladder ranking and teams will not change<br />" +
+ 			"- We are restarting to update Pokémon Showdown to a newer version" +
+ 			"- Your battle points will be reset to 0 after restart"
 		);
 	},
 
@@ -1826,7 +1827,11 @@ var commands = exports.commands = {
 	roomrequests: function (target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox(
-			"- <a href=\"http://www.pokecommunity.com/showthread.php?t=342086\">Room Requests & Guidelines</a>"
+			"<center><font size='4' color='darkgreen'><b>Want your own chatroom?</b></font><br />" +
+ 			"<font size='2' color='blue'><b>Fill the form and pm to an admin.</b></font></center><br />" +
+ 			"<B>Room Name:</B><br />" +
+ 			"<B>Room Owners:</B> ( Max 3 )<BR />" +
+ 			"<B>Why You Want The Room:</B><br />"
 		);
 	},
 
