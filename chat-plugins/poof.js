@@ -15,8 +15,8 @@ const ansirent = [
 	"is bug fixer."
 ];
 
-const bidoofftw = [
-	"was forced onto bed by Kingdom of Tea."
+const garchompite7 = [
+	"is pokemoon forum moderator"
 ];
 
 const ctfrm = [
