@@ -1564,7 +1564,7 @@ var commands = exports.commands = {
  			"- We wait a few minutes before restarting so people can finish up their battles<br />" +			"- The restart itself will take around 0.6 seconds<br />" +
  			"- The restart itself will take around 10 minutes<br />" +
  			"- Your ladder ranking and teams will not change<br />" +
- 			"- We are restarting to update Pokémon Showdown to a newer version" +
+ 			"- We are restarting to update Pokémon Showdown to a newer version<br />" +
  			"- Your battle points will be reset to 0 after restart"
 		);
 	},
