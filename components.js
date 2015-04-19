@@ -72,24 +72,22 @@ var components = exports.components = {
 			var userId = toId(target);
 			var bp = Core.profile.bp(userId);
 			var tourWins = Core.profile.tourWins(userId);
-			var pclWins = Core.profile.pclWins(userId);
 			var title = Core.profile.title(userId);
 
 			if (title === 0) {
-				return this.sendReplyBox(Core.profile.avatar(false, userId) + Core.profile.name(false, userId) + Core.profile.group(false, userId) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + Core.profile.display('pclWins', pclWins) + '<br clear="all">');
+				return this.sendReplyBox(Core.profile.avatar(false, userId) + Core.profile.name(false, userId) + Core.profile.group(false, userId) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + '<br clear="all">');
 			}
-			return this.sendReplyBox(Core.profile.avatar(false, userId) + Core.profile.display('title', title) + Core.profile.name(false, target) + Core.profile.group(false, userId) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + Core.profile.display('pclWins', pclWins) + '<br clear="all">');
+			return this.sendReplyBox(Core.profile.avatar(false, userId) + Core.profile.display('title', title) + Core.profile.name(false, target) + Core.profile.group(false, userId) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + <br clear="all">');
 		}
 
 		var bp = Core.profile.bp(targetUser.userid);
 		var tourWins = Core.profile.tourWins(toId(targetUser.userid));
-		var pclWins = Core.profile.pclWins(toId(targetUser.userid));
 		var title = Core.profile.title(targetUser.userid);
 
 		if (title === 0) {
-			return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + Core.profile.display('pclWins', pclWins) + '<br clear="all">');
+			return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + <br clear="all">');
 		}
-		return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.display('title', title) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + Core.profile.display('pclWins', pclWins) + '<br clear="all">');
+		return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.display('title', title) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + <br clear="all">');
 	},
 
 	settitle: 'title',
@@ -135,21 +133,6 @@ var components = exports.components = {
 
 	},
 
-	pcltournamentladder: 'pclladder',
-	pcltourladder: 'pclladder',
-	pclladder: function (target, room, user) {
-		if (!this.canBroadcast()) return;
-
-		if (!target) target = 10;
-		if (!/[0-9]/.test(target) && target.toLowerCase() !== 'all') target = -1;
-
-		var ladder = Core.pclLadder(Number(target));
-		if (ladder === 0) return this.sendReply('No one is ranked yet.');
-
-		return this.sendReply('|raw|<center>' + ladder + 'To view the entire ladder use /pclladder <em>all</em> or to view a certain amount of users use /pclladder <em>number</em></center>');
-
-	},
-
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return;
 		return this.sendReply('|raw|' + Core.shop(true));
@@ -167,7 +150,7 @@ var components = exports.components = {
 				Core.stdout('bp', user.userid, (userBP - price));
 				if (target.toLowerCase() === 'title') {
 					user.canTitle = true;
-					this.sendReply('You have purchased a user title. You may now use /title now.');
+					this.sendReply('You have purchased a user title. Please take screenshot and pm to an admin to get your title.');
 					this.parse('/help title');
 				} else if (target.toLowerCase() === 'star') {
 					user.canStar = true;
@@ -175,7 +158,7 @@ var components = exports.components = {
 					this.parse('/help star');
 					this.sendReply('If you do not want your \u2606 anymore, you may use /removestar to go back to your old symbol.');
 				} else {
-					this.sendReply('You have purchased ' + target + '. Please contact the admin "wolf" to get ' + target + '. Use the /tell command if wolf is offline (submit "/help tell" in the chat).');
+					this.sendReply('You have purchased ' + target + '. Please contact the admin "skytrainerash" to get ' + target + '. Use the /tell command if skytrainerash is offline (submit "/help tell" in the chat).');
 				}
 				room.add(user.name + ' has bought ' + target + ' from the shop.');
 			}
