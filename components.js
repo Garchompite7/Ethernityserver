@@ -85,9 +85,9 @@ var components = exports.components = {
 		var title = Core.profile.title(targetUser.userid);
 
 		if (title === 0) {
-			return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + <br clear="all">');
+			return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins)');
 		}
-		return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.display('title', title) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins) + <br clear="all">');
+		return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.display('title', title) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('bp', bp) + Core.profile.display('tourWins', tourWins)');
 	},
 
 	settitle: 'title',
