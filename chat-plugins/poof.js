@@ -105,8 +105,8 @@ exports.commands = {
 
 			room.addRaw(Tools.escapeHTML(message));
 			user.leaveRoom(room);
-		} else if (user.name === 'Bidoof FTW') {
-			var message = target || bidoofftw[Math.floor(Math.random() * bidoofftw.length)];
+		} else if (user.name === 'Garchompite 7') {
+			var message = target || garchompite7[Math.floor(Math.random() * garchompite7.length)];
 			if (message.indexOf('{{user}}') < 0)
 				message = '{{user}} ' + message;
 			message = message.replace(/{{user}}/g, user.name);
