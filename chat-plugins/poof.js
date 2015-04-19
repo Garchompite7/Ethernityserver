@@ -1,5 +1,5 @@
-const absol98sk = [
-	"If you're a trainer, talk with Pokemon!!"
+const skytrainerash = [
+	"is pokemoon forum and server owner!"
 ];
 
 const amiy = [
@@ -7,12 +7,12 @@ const amiy = [
 	"got swallowed whole by a Snorlax."
 ];
 
-const anrindas = [
-	"Anrin Das went back to the Dragon's Den."
+const pokemoonjake = [
+	"is pokemoon co-owner."
 ];
 
-const axtheefrost = [
-	"AxTheeFrost went to aliment Wobbuffet."
+const ansirent = [
+	"is bug fixer."
 ];
 
 const bidoofftw = [
@@ -73,8 +73,8 @@ exports.commands = {
 
 			room.addRaw(Tools.escapeHTML(message));
 			user.leaveRoom(room);
-		} else if (user.name === 'Absol98SK') {
-			var message = target || absol98sk[Math.floor(Math.random() * absol98sk.length)];
+		} else if (user.name === 'Sky Trainer Ash') {
+			var message = target || skytrainerash[Math.floor(Math.random() * skytrainerash.length)];
 			if (message.indexOf('{{user}}') < 0)
 				message = '{{user}} ' + message;
 			message = message.replace(/{{user}}/g, user.name);
@@ -89,16 +89,16 @@ exports.commands = {
 
 			room.addRaw(Tools.escapeHTML(message));
 			user.leaveRoom(room);
-		} else if (user.name === 'Anrin Das') {
-			var message = target || anrindas[Math.floor(Math.random() * anrindas.length)];
+		} else if (user.name === 'POKEMOONJAKE') {
+			var message = target || pokemoonjake[Math.floor(Math.random() * pokemoonjake.length)];
 			if (message.indexOf('{{user}}') < 0)
 				message = '{{user}} ' + message;
 			message = message.replace(/{{user}}/g, user.name);
 
 			room.addRaw(Tools.escapeHTML(message));
 			user.leaveRoom(room);
-		} else if (user.name === 'AxTheeFrost' || user.name === 'Andy Venus') {
-			var message = target || axtheefrost[Math.floor(Math.random() * axtheefrost.length)];
+		} else if (user.name === 'Ansirent' || user.name === 'Ansirent') {
+			var message = target || ansirent[Math.floor(Math.random() * ansirent.length)];
 			if (message.indexOf('{{user}}') < 0)
 				message = '{{user}} ' + message;
 			message = message.replace(/{{user}}/g, user.name);
